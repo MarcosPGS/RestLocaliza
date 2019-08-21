@@ -39,9 +39,6 @@ public class Curso implements Serializable {
 	@Column(name="turno")
 	private String turno;
 	
-	@Column(name="idprofessor")
-	private Long idprofessor;
-	
 	@Column(name="disciplina")
 	private String disciplina;
 	
@@ -56,6 +53,9 @@ public class Curso implements Serializable {
 	
 	@Column(name="horariosaida")
 	private String horarioSaida;
+	
+	@OneToMany(mappedBy="idcurso",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	private List<Professor>professores;
 
 	public Long getIdCurso() {
 		return idCurso;
@@ -87,14 +87,6 @@ public class Curso implements Serializable {
 
 	public void setTurno(String turno) {
 		this.turno = turno;
-	}
-
-	public Long getIdprofessor() {
-		return idprofessor;
-	}
-
-	public void setIdprofessor(Long idprofessor) {
-		this.idprofessor = idprofessor;
 	}
 
 	public String getDisciplina() {
@@ -137,6 +129,15 @@ public class Curso implements Serializable {
 		this.horarioSaida = horarioSaida;
 	}
 
+	public List<Professor> getProfessores() {
+		return professores;
+	}
 
+	public void setProfessores(List<Professor> professores) {
+		this.professores = professores;
+	}
 
+	
+	
+	
 }

@@ -30,12 +30,15 @@ public class Professor implements Serializable {
 	@Column(name="cpf")
 	private String cpf;
 	
-	@OneToMany(mappedBy="idprofessor",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	private List<Curso>cursos;
+	@Column(name="idcurso")
+	private Long idcurso;
+
+	@Column(name="anotacao")
+	private String anotacao;
 	
 //	@OneToMany(mappedBy="idprofessor",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-//	private List<Disciplina>disciplinas;
-
+//	private List<Curso>cursos;
+	
 	public Long getIdProfessor() {
 		return idProfessor;
 	}
@@ -60,21 +63,21 @@ public class Professor implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public List<Curso> getCursos() {
-		return cursos;
+	public Long getIdcurso() {
+		return idcurso;
 	}
 
-	public void setCursos(List<Curso> cursos) {
-		this.cursos = cursos;
+	public void setIdcurso(Long idcurso) {
+		this.idcurso = idcurso;
 	}
 
-//	public List<Disciplina> getDisciplinas() {
-//		return disciplinas;
-//	}
-//
-//	public void setDisciplinas(List<Disciplina> disciplinas) {
-//		this.disciplinas = disciplinas;
-//	}
+	public String getAnotacao() {
+		return anotacao;
+	}
+
+	public void setAnotacao(String anotacao) {
+		this.anotacao = anotacao;
+	}
 	
 	
 }

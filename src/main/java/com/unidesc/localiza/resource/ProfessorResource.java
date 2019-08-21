@@ -32,37 +32,37 @@ public class ProfessorResource {
 	ProfessorService professorService;
 	
 	
-	@GetMapping() //endpoint buscar todos os professor
-	public List<Professor>buscaTodos(){
-		return professorService.buscarTodos();
-	}
-	
-	@GetMapping("/nome/{nome}")
-	public ResponseEntity<Professor> buscaNome(@PathVariable String nome) {
-		Professor professorResultado = professorService.buscarPorNome(nome);
-		if(professorResultado == null){
-            return ok(null);
-        }
-        return ok(professorResultado);
-		
-	}
-	
-	@PostMapping()
-	public Professor salvarProfessor(@RequestBody Professor professor) {
-		return professorService.salvarCompletos(professor);
-	}
-	
-	
-	//EndPoint Update
-		@PutMapping()
-		public Professor atualizarConvidado(@RequestBody Professor professor) {
-			return professorService.atualizarProfessor(professor);
-		}
-		
-		//EndPoint Delete
-		@DeleteMapping(value="/{idProfessor}")
-		@ResponseStatus(HttpStatus.NO_CONTENT)
-		public void deletarConvidado(@PathVariable Long idProfessor) {
-			professorService.deletarProfessor(idProfessor);
-		}
+//	@GetMapping() //endpoint buscar todos os professor
+//	public List<Professor>buscaTodos(){
+//		return professorService.buscarTodos();
+//	}
+//	
+//	@GetMapping("/nome/{nome}")
+//	public ResponseEntity<Professor> buscaNome(@PathVariable String nome) {
+//		Professor professorResultado = professorService.buscarPorNome(nome);
+//		if(professorResultado == null){
+//            return ok(null);
+//        }
+//        return ok(professorResultado);
+//		
+//	}
+//	
+//	@PostMapping()
+//	public Professor salvarProfessor(@RequestBody Professor professor) {
+//		return professorService.salvarCompletos(professor);
+//	}
+//	
+//	
+//	//EndPoint Update
+//		@PutMapping()
+//		public Professor atualizarConvidado(@RequestBody Professor professor) {
+//			return professorService.atualizarProfessor(professor);
+//		}
+//		
+//		//EndPoint Delete
+//		@DeleteMapping(value="/{idProfessor}")
+//		@ResponseStatus(HttpStatus.NO_CONTENT)
+//		public void deletarConvidado(@PathVariable Long idProfessor) {
+//			professorService.deletarProfessor(idProfessor);
+//		}
 }
